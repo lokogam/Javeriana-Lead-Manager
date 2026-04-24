@@ -40,7 +40,11 @@ function toEventItem(raw: RawEventItem): EventItem {
 }
 
 export async function fetchEventsApi(): Promise<EventItem[]> {
-  const response = await fetch('/api/events.json', {
+  const baseUrl = import.meta.env.BASE_URL
+  const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`
+  const eventsUrl = `${normalizedBaseUrl}api/events.json`
+
+  const response = await fetch(eventsUrl, {
     headers: {
       Accept: 'application/json',
     },
