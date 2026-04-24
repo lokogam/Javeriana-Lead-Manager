@@ -1,0 +1,65 @@
+[
+  {
+    "id": "evt-101",
+    "name": "Ingenieria de Software",
+    "category": "Pregrado",
+    "date": "2026-05-12",
+    "modality": "Presencial",
+    "summary": "Conoce plan de estudios, laboratorios y oportunidades de internacionalizacion.",
+    "seats": 120
+  },
+  {
+    "id": "evt-102",
+    "name": "Derecho con enfasis en Innovacion Publica",
+    "category": "Pregrado",
+    "date": "2026-05-16",
+    "modality": "Hibrido",
+    "summary": "Sesion informativa sobre clinicas juridicas y doble titulacion.",
+    "seats": 85
+  },
+  {
+    "id": "evt-201",
+    "name": "Maestria en Ciencia de Datos",
+    "category": "Posgrado",
+    "date": "2026-05-20",
+    "modality": "Virtual",
+    "summary": "Ruta academica orientada a analitica avanzada e inteligencia artificial aplicada.",
+    "seats": 60
+  },
+  {
+    "id": "evt-202",
+    "name": "Especializacion en Gerencia de Proyectos",
+    "category": "Posgrado",
+    "date": "2026-05-24",
+    "modality": "Hibrido",
+    "summary": "Enfoque practico con herramientas de planeacion, riesgo y liderazgo de equipos.",
+    "seats": 75
+  },
+  {
+    "id": "evt-301",
+    "name": "Diplomado en UX Research",
+    "category": "Educacion Continua",
+    "date": "2026-05-18",
+    "modality": "Virtual",
+    "summary": "Aprende metodos de investigacion con usuarios para productos digitales.",
+    "seats": 90
+  },
+  {
+    "id": "evt-302",
+    "name": "Curso Intensivo de Analitica de Marketing",
+    "category": "Educacion Continua",
+    "date": "2026-05-27",
+    "modality": "Presencial",
+    "summary": "Integra datos de campaña, conversion y atribucion para decisiones comerciales.",
+    "seats": 45
+  },
+  {
+    "id": "evt-303",
+    "name": "Bootcamp de Transformacion Digital para Pymes",
+    "category": "Educacion Continua",
+    "date": "2026-06-03",
+    "modality": "Hibrido",
+    "summary": "Programa corto para lideres que buscan acelerar procesos digitales.",
+    "seats": 50
+  }
+]

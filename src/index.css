@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --canvas: 247 248 253;
+    --ink: 24 33 56;
+    --muted: 95 109 139;
+    --card: 255 255 255;
+    --line: 214 222 240;
+    --primary: 24 78 162;
+    --accent: 218 147 53;
+    --success: 11 124 97;
+    --danger: 174 48 67;
+  }
+
+  .dark {
+    --canvas: 15 20 33;
+    --ink: 236 241 255;
+    --muted: 151 165 195;
+    --card: 23 31 49;
+    --line: 50 66 94;
+    --primary: 94 168 255;
+    --accent: 255 191 102;
+    --success: 52 211 153;
+    --danger: 251 113 133;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    color: rgb(var(--ink));
+    background:
+      radial-gradient(120% 120% at 0% 0%, rgba(24, 78, 162, 0.11) 0%, rgba(24, 78, 162, 0) 45%),
+      radial-gradient(100% 100% at 100% 0%, rgba(218, 147, 53, 0.1) 0%, rgba(218, 147, 53, 0) 45%),
+      linear-gradient(180deg, rgba(247, 248, 253, 1) 0%, rgba(240, 245, 255, 1) 100%);
+  }
+
+  .dark body {
+    background:
+      radial-gradient(110% 120% at 0% 0%, rgba(94, 168, 255, 0.16) 0%, rgba(94, 168, 255, 0) 42%),
+      radial-gradient(100% 120% at 100% 0%, rgba(255, 191, 102, 0.13) 0%, rgba(255, 191, 102, 0) 44%),
+      linear-gradient(180deg, rgba(15, 20, 33, 1) 0%, rgba(11, 16, 28, 1) 100%);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .theme-switching,
+    .theme-switching *,
+    .theme-switching *::before,
+    .theme-switching *::after {
+      transition:
+        background 280ms ease,
+        background-color 280ms ease,
+        border-color 280ms ease,
+        color 280ms ease,
+        fill 280ms ease,
+        stroke 280ms ease,
+        box-shadow 280ms ease;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Fraunces', serif;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border border-line bg-card/90 shadow-soft backdrop-blur-sm;
+  }
+
+  .label {
+    @apply text-sm font-semibold text-muted;
+  }
+}
