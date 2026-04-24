@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Javeriana-Lead-Manager/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var mode = localStorage.getItem('javeriana.theme.v1') || 'system'
+          var isDark =
+            mode === 'dark' ||
+            (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+          if (isDark) {
+            document.documentElement.classList.add('dark')
+          }
+        } catch (_error) {
+          document.documentElement.classList.remove('dark')
+        }
+      })()
+    </script>
+    <title>Javeriana Lead and Events Manager</title>
+    <script type="module" crossorigin src="/Javeriana-Lead-Manager/assets/index-C-Knq1SR.js"></script>
+    <link rel="stylesheet" crossorigin href="/Javeriana-Lead-Manager/assets/index-wq4_pbAQ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
