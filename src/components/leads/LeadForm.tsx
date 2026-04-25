@@ -2,7 +2,11 @@ import { useMemo, useState } from 'react'
 import type { LeadEntity, LeadFormInput } from '../../features/leads/leadsTypes'
 import { normalizeLeadInput } from '../../lib/normalization/leadNormalization'
 import { createClientId } from '../../lib/utils/formatters'
-import { isLeadInputValid, validateLeadInput } from '../../lib/validation/leadValidation'
+import {
+  getEmailRecommendation,
+  isLeadInputValid,
+  validateLeadInput,
+} from '../../lib/validation/leadValidation'
 
 interface LeadFormProps {
   interestOptions: string[]
@@ -19,12 +23,12 @@ const INITIAL_FORM: LeadFormInput = {
 export function LeadForm({ interestOptions, onCreateLead }: LeadFormProps) {
   const [form, setForm] = useState<LeadFormInput>(INITIAL_FORM)
   const [errors, setErrors] = useState<Partial<Record<keyof LeadFormInput, string>>>({})
-  const [recommendation, setRecommendation] = useState<string | undefined>()
   const [successMessage, setSuccessMessage] = useState('')
 
   const sortedOptions = useMemo(() => [...interestOptions].sort((a, b) => a.localeCompare(b)), [
     interestOptions,
   ])
+  const recommendation = useMemo(() => getEmailRecommendation(form.email), [form.email])
 
   const setField = (field: keyof LeadFormInput, value: string) => {
     setForm((previous) => ({ ...previous, [field]: value }))
@@ -37,7 +41,6 @@ export function LeadForm({ interestOptions, onCreateLead }: LeadFormProps) {
 
     const validation = validateLeadInput(form)
     setErrors(validation.errors)
-    setRecommendation(validation.recommendation)
 
     if (!isLeadInputValid(validation)) {
       return

@@ -1,10 +1,20 @@
 import type { LeadFormInput } from '../../features/leads/leadsTypes'
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const INSTITUTIONAL_EMAIL_RECOMMENDATION =
+  'Recomendacion: si cuentas con correo institucional, usa @javeriana.edu.co.'
 
 export interface LeadValidationResult {
   errors: Partial<Record<keyof LeadFormInput, string>>
   recommendation?: string
+}
+
+export function getEmailRecommendation(email: string): string | undefined {
+  const emailDomain = email.trim().toLowerCase().split('@')[1]
+
+  return emailDomain && emailDomain !== 'javeriana.edu.co'
+    ? INSTITUTIONAL_EMAIL_RECOMMENDATION
+    : undefined
 }
 
 export function validateLeadInput(input: LeadFormInput): LeadValidationResult {
@@ -28,11 +38,7 @@ export function validateLeadInput(input: LeadFormInput): LeadValidationResult {
     errors.phone = 'El telefono tiene un formato invalido.'
   }
 
-  const emailDomain = input.email.trim().toLowerCase().split('@')[1]
-  const recommendation =
-    emailDomain && emailDomain !== 'javeriana.edu.co'
-      ? 'Recomendacion: si cuentas con correo institucional, usa @javeriana.edu.co.'
-      : undefined
+  const recommendation = getEmailRecommendation(input.email)
 
   return { errors, recommendation }
 }
